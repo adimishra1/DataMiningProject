@@ -23,8 +23,10 @@ global_dict_file = open("global_map.pkl","rb")
 global_map = pickle.load(global_dict_file,encoding='utf-8')
 global_dict_file.close()
 
-old_len = len(global_map)
-new_id = old_len+1
+old_id = -1
+for district in global_map:
+	old_id = max(old_id, global_map[district])
+new_id = old_id+1
 not_present = open('Not_Present', 'r')
 for line in not_present:
 	line_split = line.strip().split(',')
@@ -34,7 +36,7 @@ for line in not_present:
 	else:
 		global_map[line_split[0].lower()] = int(line_split[1])
 
-print(old_len, new_id,len(global_map))
+print(old_id, new_id,len(global_map))
 
 global_file = open("global_map.pkl","wb")
 pickle.dump(global_map, global_file)
