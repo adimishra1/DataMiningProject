@@ -33,10 +33,10 @@ global_dict_file.close()
 def get_district_code(dist_name):
 	for dist in global_map:
 		if "_" in dist:
-			if dist_name == dist.split("_")[0]:
+			if dist_name.strip().lower() == dist.split("_")[0]:
 				return global_map[dist]
 		else:
-			if dist_name == dist:
+			if dist_name.strip().lower() == dist:
 				return global_map[dist]
 	return -1
 
