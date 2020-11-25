@@ -289,25 +289,30 @@ def collectData():
                         # print(itemcode,item)
                         small_edu_data[yr][dist][itemcode] = ddata[item]
 
-                        # tmp.add(fkey2[item].split('_')[0])
-                        # if fkey2[item].split('_')[0][-1]=='E':
-                        #     poss = True
-                        # if len(fkey2[item].split('_')) > 1:
-                        #     if fkey2[item].split('_')[0] not in tmp2:
-                        #         tmp2[fkey2[item].split('_')[0]] = set()
-                        #     tmp2[fkey2[item].split('_')[0]].add(fkey2[item].split('_')[1])
+                        tmp.add(fkey2[item2].split('_')[0])
+                        if fkey2[item2].split('_')[0][-1]=='E':
+                            poss = True
+                        if len(fkey2[item2].split('_')) > 1:
+                            if fkey2[item2].split('_')[0] not in tmp2:
+                                tmp2[fkey2[item2].split('_')[0]] = set()
+                            tmp2[fkey2[item2].split('_')[0]].add(fkey2[item2].split('_')[1])
+                            # print(tmp2)
+                
                 
             
-            
-        #         print(year)
-        #         print(sorted(s1.difference(tmp)))
-        #         print()
-        #         print()
-        #         print()
-        #         print()
-                # break
+                print(year)
+                print(sorted(s1.difference(tmp)))
+                for ni1,ni2 in tmp2.items():
+                    if(len(s2.difference(ni2))>0):
+                        print(ni1,s2.difference(ni2))
+                print()
+                print()
+                print()
+                print()
+                break
 
-print(quer(2016,"Bokaro",'TotalPopulation'))
-print(quer(2016,"Bokaro",'SexRation'))
+collectData()
+# print(quer(2016,"Bokaro",'TotalPopulation'))
+# print(quer(2016,"Bokaro",'SexRation'))
 
 
