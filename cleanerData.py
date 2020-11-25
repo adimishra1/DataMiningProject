@@ -2,10 +2,6 @@ from getDistrictCode import *
 import pickle
 
 
-clean_data = {}
-
-def getData():
-    return clean_data
 
 set_of_final_keys = ["TotalPopulation","SexRation","LiteracyRate","MaleLiteracyRate","FemaleLiteracyRate",
 "TotalSchoolE","GovtSchoolE","PrvtSchoolE","TeacherGovtE","TeacherPrvtE","WithElectricityE",
@@ -261,6 +257,8 @@ def quer(year,dist,key):
     global done,small_edu_data
     if done == False:
         collectData()
+    if isinstance(year,str):
+        year = int(year[0:4])
     return small_edu_data[year][getDistrictCode(dist)][key]
 
 def collectData():
