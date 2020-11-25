@@ -1,5 +1,4 @@
-from typing import final
-import getDistrictCode as gDc
+from getDistrictCode import *
 import pickle
 
 
@@ -239,11 +238,6 @@ final_keys["Total Classrooms Upper Primary with sec. and higher sec."] = "Number
 
 
 
-# edu_file = open("Education","rb")
-# edu_data = pickle.load(edu_file,encoding='utf-8')
-# edu_file.close()
-
-
 def strC(s1):
     return s1.lower().replace(' ','').replace('-','')
 
@@ -253,6 +247,9 @@ for key,value in final_keys.items():
     fkey2[strC(key)] = value
 
 
+small_edu_data = {}
+done = False
+
 
 def getVal(s):
     s = strC(s)
@@ -260,37 +257,59 @@ def getVal(s):
         return fkey2[s]
     return "NA"
 
+def quer(year,dist,key):
+    global done,small_edu_data
+    if done == False:
+        collectData()
+    return small_edu_data[year][getDistrictCode(dist)][key]
 
-# for year,ydata in edu_data.items():
-    # # clean_data[year] = dict()
-    # if year >= '2007-08' or True:
-    #     # print(year)
-    #     for distr,ddata in ydata.items():
-    #         tmp = set()
+def collectData():
+    global done,small_edu_data,fkey2
+    done = True
+    edu_file = open("Education","rb")
+    edu_data = pickle.load(edu_file,encoding='utf-8')
+    edu_file.close()
+    for year,ydata in edu_data.items():
+        # clean_data[year] = dict()
+        
+        # print(year[0:4])
+        small_edu_data[int(year[0:4])] = {}
+        yr = int(year[0:4])
+        if year >= '2007-08' or True:
+        #     # print(year)
+            for distr,ddata in ydata.items():
+                tmp = set()
+                dist = getDistrictCode(distr)
+                small_edu_data[yr][dist] = {}
+                tmp2 = {}
+                poss = False
+                for item in ddata.keys():
+                    # print(item)
+                    item2 = strC(item)
+                    if item2 in fkey2:
+                        itemcode = fkey2[item2]
+                        # print(itemcode,item)
+                        small_edu_data[yr][dist][itemcode] = ddata[item]
 
-    #         tmp2 = {}
-    #         poss = False
-    #         for item in ddata.keys():
-    #             item = strC(item)
-    #             if item in fkey2:
-    #                 tmp.add(fkey2[item].split('_')[0])
-    #                 if fkey2[item].split('_')[0][-1]=='E':
-    #                     poss = True
-    #                 if len(fkey2[item].split('_')) > 1:
-    #                     if fkey2[item].split('_')[0] not in tmp2:
-    #                         tmp2[fkey2[item].split('_')[0]] = set()
-    #                     tmp2[fkey2[item].split('_')[0]].add(fkey2[item].split('_')[1])
+                        # tmp.add(fkey2[item].split('_')[0])
+                        # if fkey2[item].split('_')[0][-1]=='E':
+                        #     poss = True
+                        # if len(fkey2[item].split('_')) > 1:
+                        #     if fkey2[item].split('_')[0] not in tmp2:
+                        #         tmp2[fkey2[item].split('_')[0]] = set()
+                        #     tmp2[fkey2[item].split('_')[0]].add(fkey2[item].split('_')[1])
+                
             
             
-            
-    #         print(year)
-    #         print(sorted(s1.difference(tmp)))
-    #         print()
-    #         print()
-    #         print()
-    #         print()
-            # break
+        #         print(year)
+        #         print(sorted(s1.difference(tmp)))
+        #         print()
+        #         print()
+        #         print()
+        #         print()
+                # break
 
-
+print(quer(2016,"Bokaro",'TotalPopulation'))
+print(quer(2016,"Bokaro",'SexRation'))
 
 
