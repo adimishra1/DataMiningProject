@@ -256,11 +256,12 @@ def quer(year,dist,key):
     global done,small_edu_data
     if done == False: collectData()
     if isinstance(year,str):  year = int(year[0:4])
+    if isinstance(dist,str): dist = getDistrictCode(dist)
     val = 0
     if key[-1]=='E':
-        for types in set_of_special_keys: val += small_edu_data[year][getDistrictCode(dist)][(key + "_" + types)]    
+        for types in set_of_special_keys: val += small_edu_data[year][dist][(key + "_" + types)]    
     else:
-        val = small_edu_data[year][getDistrictCode(dist)][key]
+        val = small_edu_data[year][dist][key]
     return val
 
 def genKeys(year):
@@ -341,5 +342,6 @@ def collectData():
 
 # print(quer(2007,"Balrampur",'TotalUniformIncentives'))
 # print(quer(2016,"Bokaro",'SexRation'))
+# print(quer(2016,getDistrictCode('Bokaro'),'SexRation'))
 
 
