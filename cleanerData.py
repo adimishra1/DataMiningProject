@@ -5,13 +5,12 @@ import pickle
 
 set_of_final_keys = ["TotalPopulation","SexRation","LiteracyRate","MaleLiteracyRate","FemaleLiteracyRate",
 "TotalSchoolE","GovtSchoolE","PrvtSchoolE","TeacherGovtE","TeacherPrvtE","WithElectricityE",
-"WithComputerE","WithRoadsE","NumberOfClassroomE"]
+"WithComputerE","WithRoadsE","NumberOfClassroomE", "TotalUniformIncentives", "TotalTextBookIncentives"]
 s1 = set(set_of_final_keys)
 set_of_special_keys = ["P","PU","PUS","PUSH","U","US","USH"]
 s2 = set(set_of_special_keys)
 
 final_keys = dict()
-
 
 final_keys["Basic data from Census 2011 Total Population(in 1000's)"] = "TotalPopulation"
 final_keys["Basic data from Census 2011 Sex Ratio"] = "SexRation"
@@ -291,22 +290,45 @@ def collectData():
         # print(year[0:4])
         small_edu_data[int(year[0:4])] = {}
         yr = int(year[0:4])
-        if year >= '2007-08' or True:
+        if year >= '2007-08':
         #     # print(year)
             for distr,ddata in ydata.items():
                 tmp = set()
                 dist = getDistrictCode(distr)
                 small_edu_data[yr][dist] = {}
+                small_edu_data[yr][dist]["TotalTextBookIncentives"] = 0
+                small_edu_data[yr][dist]["TotalUniformIncentives"] = 0
                 tmp2 = {}
                 poss = False
                 for item in ddata.keys():
+                    if yr<2014:
+                        if 'Uniform' in item:
+                            try:
+                                small_edu_data[yr][dist]["TotalUniformIncentives"] += int(ddata[item])
+                            except:
+                                pass
+                        elif 'Text Book' in item:
+                            try:
+                                small_edu_data[yr][dist]["TotalTextBookIncentives"] += int(ddata[item])
+                            except:
+                                pass
+                    else:
+                        if 'Uniform' in item and 'All' in item:
+                            try:
+                                small_edu_data[yr][dist]["TotalUniformIncentives"] += int(ddata[item])
+                            except:
+                                pass
+                        elif 'TextBook' in item and 'All' in item:
+                            try:
+                                small_edu_data[yr][dist]["TotalTextBookIncentives"] += int(ddata[item])
+                            except:
+                                pass
                     # print(item)
                     item2 = strC(item)
                     if item2 in fkey2:
                         itemcode = fkey2[item2]
                         # print(itemcode,item)
                         small_edu_data[yr][dist][itemcode] = ddata[item]
-
                         tmp.add(fkey2[item2].split('_')[0])
                         if fkey2[item2].split('_')[0][-1]=='E':
                             poss = True
@@ -317,23 +339,25 @@ def collectData():
                 
                 for key,val in tmp2.items():
                     if len(s2.difference(val)) > 0: 
-                        print(s2.difference(val),key)
+                        # print(s2.difference(val),key)
                         for absnt in s2.difference(val):
-                            small_edu_data[yr][dist][key + '_' + absnt] = 0 
+                            small_edu_data[yr][dist][key + '_' + absnt] = 0
 
+                # print(distr, small_edu_data[yr][dist]["TotalUniformIncentives"], small_edu_data[yr][dist]["TotalTextBookIncentives"])
+                # print()
 
-                print(year)
-                print(sorted(s1.difference(tmp)))
-                print()
-                print()
-                print()
-                print()
-                break
+                # print(year)
+                # print(sorted(s1.difference(tmp)))
+                # print()
+                # print()
+                # print()
+                # print()
+                # break
 
 collectData()
 # genKeys('2009-10')
 
-# print(quer(2016,"Bokaro",'TotalPopulationE'))
+print(quer(2007,"Balrampur",'TotalUniformIncentives'))
 # print(quer(2016,"Bokaro",'SexRation'))
 
 
