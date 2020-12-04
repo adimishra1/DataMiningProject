@@ -5,12 +5,100 @@ import pickle
 
 set_of_final_keys = ["TotalPopulation","SexRation","LiteracyRate","MaleLiteracyRate","FemaleLiteracyRate",
 "TotalSchoolE","GovtSchoolE","PrvtSchoolE","TeacherGovtE","TeacherPrvtE","WithElectricityE",
-"WithComputerE","WithRoadsE","NumberOfClassroomE", "TotalUniformIncentives", "TotalTextBookIncentives"]
+"WithComputerE","WithRoadsE","NumberOfClassroomE", "TotalUniformIncentives", "TotalTextBookIncentives",
+"TotalEnrolmentGovtE", "TotalEnrolmentPrvtE", "RuralEnrolmentGovtE", "RuralEnrolmentPrvtE"]
 s1 = set(set_of_final_keys)
 set_of_special_keys = ["P","PU","PUS","PUSH","U","US","USH"]
 s2 = set(set_of_special_keys)
 
 final_keys = dict()
+
+final_keys["Incentive Type Total Enrolment -Government Schools Primary"]="TotalEnrolmentGovtE_P"
+final_keys["Incentive Type Total Enrolment -Government Schools Primary with Upper primary"]="TotalEnrolmentGovtE_PU"
+final_keys["Incentive Type Total Enrolment -Government Schools Primary with Upper primary and secondary"]="TotalEnrolmentGovtE_PUS"
+final_keys["Incentive Type Total Enrolment -Government Schools Primary with Upper Primary sec/higher sec."]="TotalEnrolmentGovtE_PUSH"
+final_keys["Incentive Type Total Enrolment -Government Schools Upper Primary Only"]="TotalEnrolmentGovtE_U"
+final_keys["Incentive Type Total Enrolment -Government Schools Upper Primary with secondary"]="TotalEnrolmentGovtE_US"
+final_keys["Incentive Type Total Enrolment -Government Schools Upper Primary with sec./higher sec."]="TotalEnrolmentGovtE_USH"
+final_keys["Incentive Type Total Enrolment- Private Schools Primary"]="TotalEnrolmentPrvtE_P"
+final_keys["Incentive Type Total Enrolment- Private Schools Primary with Upper primary"]="TotalEnrolmentPrvtE_PU"
+final_keys["Incentive Type Total Enrolment- Private Schools Primary with Upper primary and secondary"]="TotalEnrolmentPrvtE_PUS"
+final_keys["Incentive Type Total Enrolment- Private Schools Primary with Upper Primary sec/higher sec."]="TotalEnrolmentGovtE_PUSH"
+final_keys["Incentive Type Total Enrolment- Private Schools Upper Primary Only"]="TotalEnrolmentGovtE_U"
+final_keys["Incentive Type Total Enrolment- Private Schools Upper Primary with secondary"]="TotalEnrolmentPrvtE_US"
+final_keys["Incentive Type Total Enrolment- Private Schools Upper Primary with sec./higher sec."]="TotalEnrolmentGovtE_USH"
+final_keys["Incentive Type Rural Enrolment -Government schools Primary"]="RuralEnrolmentGovtE_P"
+final_keys["Incentive Type Rural Enrolment -Government schools Primary with Upper primary"]="RuralEnrolmentGovtE_PU"
+final_keys["Incentive Type Rural Enrolment -Government schools Primary with Upper primary and secondary"]="RuralEnrolmentGovtE_PUS"
+final_keys["Incentive Type Rural Enrolment -Government schools Primary with Upper Primary sec/higher sec."]="RuralEnrolmentGovtE_PUSH"
+final_keys["Incentive Type Rural Enrolment -Government schools Upper Primary Only"]="RuralEnrolmentGovtE_U"
+final_keys["Incentive Type Rural Enrolment -Government schools Upper Primary with secondary"]="RuralEnrolmentGovtE_US"
+final_keys["Incentive Type Rural Enrolment -Government schools Upper Primary with sec./higher sec."]="RuralEnrolmentGovtE_USH"
+final_keys["Incentive Type Rural Enrolment -Private schools Primary"]="RuralEnrolmentPrvtE_P"
+final_keys["Incentive Type Rural Enrolment -Private schools Primary with Upper primary"]="RuralEnrolmentPrvtE_PU"
+final_keys["Incentive Type Rural Enrolment -Private schools Primary with Upper primary and secondary"]="RuralEnrolmentPrvtE_PUS"
+final_keys["Incentive Type Rural Enrolment -Private schools Primary with Upper Primary sec/higher sec."]="RuralEnrolmentPrvtE_PUSH"
+final_keys["Incentive Type Rural Enrolment -Private schools Upper Primary Only"]="RuralEnrolmentPrvtE_U"
+final_keys["Incentive Type Rural Enrolment -Private schools Upper Primary with secondary"]="RuralEnrolmentPrvtE_US"
+final_keys["Incentive Type Rural Enrolment -Private schools Upper Primary with sec./higher sec."]="RuralEnrolmentPrvtE_USH"
+
+final_keys["Total Enrolment -Government Schools Primary"]="TotalEnrolmentGovtE_P"
+final_keys["Total Enrolment -Government Schools Primary with Upper primary"]="TotalEnrolmentGovtE_PU"
+final_keys["Total Enrolment -Government Schools Primary with Upper primary and secondary"]="TotalEnrolmentGovtE_PUS"
+final_keys["Total Enrolment -Government Schools Primary with Upper Primary sec/higher sec."]="TotalEnrolmentGovtE_PUSH"
+final_keys["Total Enrolment -Government Schools Upper Primary Only"]="TotalEnrolmentGovtE_U"
+final_keys["Total Enrolment -Government Schools Upper Primary with secondary"]="TotalEnrolmentGovtE_US"
+final_keys["Total Enrolment -Government Schools Upper Primary with sec./higher sec."]="TotalEnrolmentGovtE_USH"
+final_keys["Total Enrolment- Private Schools Primary"]="TotalEnrolmentPrvtE_P"
+final_keys["Total Enrolment- Private Schools Primary with Upper primary"]="TotalEnrolmentPrvtE_PU"
+final_keys["Total Enrolment- Private Schools Primary with Upper primary and secondary"]="TotalEnrolmentPrvtE_PUS"
+final_keys["Total Enrolment- Private Schools Primary with Upper Primary sec/higher sec."]="TotalEnrolmentGovtE_PUSH"
+final_keys["Total Enrolment- Private Schools Upper Primary Only"]="TotalEnrolmentGovtE_U"
+final_keys["Total Enrolment- Private Schools Upper Primary with secondary"]="TotalEnrolmentPrvtE_US"
+final_keys["Total Enrolment- Private Schools Upper Primary with sec./higher sec."]="TotalEnrolmentGovtE_USH"
+final_keys["Rural Enrolment -Government schools Primary"]="RuralEnrolmentGovtE_P"
+final_keys["Rural Enrolment -Government schools Primary with Upper primary"]="RuralEnrolmentGovtE_PU"
+final_keys["Rural Enrolment -Government schools Primary with Upper primary and secondary"]="RuralEnrolmentGovtE_PUS"
+final_keys["Rural Enrolment -Government schools Primary with Upper Primary sec/higher sec."]="RuralEnrolmentGovtE_PUSH"
+final_keys["Rural Enrolment -Government schools Upper Primary Only"]="RuralEnrolmentGovtE_U"
+final_keys["Rural Enrolment -Government schools Upper Primary with secondary"]="RuralEnrolmentGovtE_US"
+final_keys["Rural Enrolment -Government schools Upper Primary with sec./higher sec."]="RuralEnrolmentGovtE_USH"
+final_keys["Rural Enrolment -Private schools Primary"]="RuralEnrolmentPrvtE_P"
+final_keys["Rural Enrolment -Private schools Primary with Upper primary"]="RuralEnrolmentPrvtE_PU"
+final_keys["Rural Enrolment -Private schools Primary with Upper primary and secondary"]="RuralEnrolmentPrvtE_PUS"
+final_keys["Rural Enrolment -Private schools Primary with Upper Primary sec/higher sec."]="RuralEnrolmentPrvtE_PUSH"
+final_keys["Rural Enrolment -Private schools Upper Primary Only"]="RuralEnrolmentPrvtE_U"
+final_keys["Rural Enrolment -Private schools Upper Primary with secondary"]="RuralEnrolmentPrvtE_US"
+final_keys["Rural Enrolment -Private schools Upper Primary with sec./higher sec."]="RuralEnrolmentPrvtE_USH"
+
+final_keys["Elementary Enrolment by School Category (Government) Primary Only"]="TotalEnrolmentGovtE_P"
+final_keys["Elementary Enrolment by School Category (Government) Primary with Upper Primary"]="TotalEnrolmentGovtE_PU"
+final_keys["Elementary Enrolment by School Category (Government) Primary with upper Primary Sec"]="TotalEnrolmentGovtE_PUS"
+final_keys["Elementary Enrolment by School Category (Government) Primary with upper Primary Sec/H.Sec"]="TotalEnrolmentGovtE_PUSH"
+final_keys["Elementary Enrolment by School Category (Government) Upper Primary Only"]="TotalEnrolmentGovtE_U"
+final_keys["Elementary Enrolment by School Category (Government) Upper Primary with  Sec."]="TotalEnrolmentGovtE_US"
+final_keys["Elementary Enrolment by School Category (Government) Upper Primary with Sec./H.Sec"]="TotalEnrolmentGovtE_USH"
+final_keys["Elementary Enrolment by School Category (Private) Primary Only"]="TotalEnrolmentPrvtE_P"
+final_keys["Elementary Enrolment by School Category (Private) Primary with Upper Primary"]="TotalEnrolmentPrvtE_PU"
+final_keys["Elementary Enrolment by School Category (Private) Primary with upper Primary Sec"]="TotalEnrolmentPrvtE_PUS"
+final_keys["Elementary Enrolment by School Category (Private) Primary with upper Primary Sec/H.Sec"]="TotalEnrolmentPrvtE_PUSH"
+final_keys["Elementary Enrolment by School Category (Private) Upper Primary Only"]="TotalEnrolmentPrvtE_U"
+final_keys["Elementary Enrolment by School Category (Private) Upper Primary with  Sec."]="TotalEnrolmentPrvtE_US"
+final_keys["Elementary Enrolment by School Category (Private) Upper Primary with Sec./H.Sec"]="TotalEnrolmentPrvtE_USH"
+final_keys["Elementary Enrolment by School Category (Government) - Rural Primary Only"]="RuralEnrolmentGovtE_P"
+final_keys["Elementary Enrolment by School Category (Government) - Rural Primary with Upper Primary"]="RuralEnrolmentGovtE_PU"
+final_keys["Elementary Enrolment by School Category (Government) - Rural Primary with upper Primary Sec"]="RuralEnrolmentGovtE_PUS"
+final_keys["Elementary Enrolment by School Category (Government) - Rural Primary with upper Primary Sec/H.Sec"]="RuralEnrolmentGovtE_PUSH"
+final_keys["Elementary Enrolment by School Category (Government) - Rural Upper Primary Only"]="RuralEnrolmentGovtE_U"
+final_keys["Elementary Enrolment by School Category (Government) - Rural Upper Primary with  Sec."]="RuralEnrolmentGovtE_US"
+final_keys["Elementary Enrolment by School Category (Government) - Rural Upper Primary with Sec./H.Sec"]="RuralEnrolmentGovtE_USH"
+final_keys["Elementary Enrolment by School Category (Private) - Rural Primary Only"]="RuralEnrolmentPrvtE_P"
+final_keys["Elementary Enrolment by School Category (Private) - Rural Primary with Upper Primary"]="RuralEnrolmentPrvtE_PU"
+final_keys["Elementary Enrolment by School Category (Private) - Rural Primary with upper Primary Sec"]="RuralEnrolmentPrvtE_PUS"
+final_keys["Elementary Enrolment by School Category (Private) - Rural Primary with upper Primary Sec/H.Sec"]="RuralEnrolmentPrvtE_PUSH"
+final_keys["Elementary Enrolment by School Category (Private) - Rural Upper Primary Only"]="RuralEnrolmentPrvtE_U"
+final_keys["Elementary Enrolment by School Category (Private) - Rural Upper Primary with  Sec."]="RuralEnrolmentPrvtE_US"
+final_keys["Elementary Enrolment by School Category (Private) - Rural Upper Primary with Sec./H.Sec"]="RuralEnrolmentPrvtE_USH"
 
 final_keys["Basic data from Census 2011 Total Population(in 1000's)"] = "TotalPopulation"
 final_keys["Basic data from Census 2011 Sex Ratio"] = "SexRation"
@@ -259,7 +347,7 @@ def quer(year,dist,key):
     if isinstance(dist,str): dist = getDistrictCode(dist)
     val = 0
     if key[-1]=='E':
-        for types in set_of_special_keys: val += small_edu_data[year][dist][(key + "_" + types)]    
+        for types in set_of_special_keys: val += float(small_edu_data[year][dist][(key + "_" + types)])
     else:
         val = small_edu_data[year][dist][key]
     return val
@@ -337,11 +425,11 @@ def collectData():
                             small_edu_data[yr][dist][key + '_' + absnt] = 0
 
 
-# collectData()
+collectData()
 # genKeys('2009-10')
 
 # print(quer(2007,"Balrampur",'TotalUniformIncentives'))
-# print(quer(2016,"Bokaro",'SexRation'))
+print(quer(2007,"Bokaro",'TotalEnrolmentGovtE'))
 # print(quer(2016,getDistrictCode('Bokaro'),'SexRation'))
 
 
