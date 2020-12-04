@@ -60,11 +60,12 @@ dataframe = pd.DataFrame.from_dict(literacy_dict)
 dataframe.to_excel("output.xlsx")
 
 df = pd.read_excel('output.xlsx')
+print(df)
 merged = map_df.set_index('DISTRICT').join(df.set_index('District'))
 merged = merged[['Literacy', 'geometry']]
 
-fig, ax = plt.subplots(1, figsize=(10, 6))
-ax.axis('off')
-ax.set_title('District Wise Literacy Rate in 2016-17', fontdict={'fontsize': '25', 'fontweight' : '3'})
-merged.plot(column='Literacy', cmap='Oranges', linewidth=0.8, ax=ax, edgecolor='0.8', legend=False, categorical=False)
-fig.savefig("District_wise_literacy.png", dpi=100)
+# fig, ax = plt.subplots(1, figsize=(10, 6))
+# ax.axis('off')
+# ax.set_title('District Wise Literacy Rate in 2016-17', fontdict={'fontsize': '25', 'fontweight' : '3'})
+# merged.plot(column='Literacy', cmap='Oranges', linewidth=0.8, ax=ax, edgecolor='0.8', legend=False, categorical=False)
+# fig.savefig("District_wise_literacy.png", dpi=100)

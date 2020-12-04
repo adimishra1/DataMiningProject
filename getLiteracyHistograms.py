@@ -9,13 +9,14 @@ global_min = 200
 for year in small_edu_data:
     if year < 2007:
         continue
+    # print("Hello ", year)
     data = []
     for district in small_edu_data[year]:
         try:
             try:
                 LiteracyRate = float(small_edu_data[year][district]["LiteracyRate"])
             except:
-                print(small_edu_data[year][district]["LiteracyRate"])
+                # print(small_edu_data[year][district]["LiteracyRate"])
             if LiteracyRate==0:
                 continue
             data.append(LiteracyRate)
@@ -24,7 +25,7 @@ for year in small_edu_data:
             if LiteracyRate<global_min:
                 global_min = LiteracyRate
         except KeyError:
-            print(year, district)
+            # print(year, district)
     legend = ['distribution']
     fig, axs = plt.subplots(1, 1, figsize =(7, 5), tight_layout = True)
     for s in ['top', 'bottom', 'left', 'right']:  

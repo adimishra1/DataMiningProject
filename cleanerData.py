@@ -337,7 +337,7 @@ def collectData():
                             small_edu_data[yr][dist][key + '_' + absnt] = 0
 
 
-# collectData()
+collectData()
 # genKeys('2009-10')
 
 # print(quer(2007,"Balrampur",'TotalUniformIncentives'))
