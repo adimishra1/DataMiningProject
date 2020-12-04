@@ -173,9 +173,9 @@ def pearson_coefficient(vec):
     den2 = 0 
     crime_mean/=len(vec)
     edu_mean/=len(vec)
-    for item in vec:
-        x = vec[0]-edu_mean
-        y = vec[1]-crime_mean
+    for i in range(0,len(vec)):
+        x = vec[i][0]-edu_mean
+        y = vec[i][1]-crime_mean
         num+=x*y
         den1+=(x*x)
         den2+=y*y
@@ -189,7 +189,7 @@ def spearman_coefficient(vec):
     def rank(ind,val):
         cnt=1
         for i in range(0,len(vec)):
-            if vec[ind][i]<val:
+            if vec[i][ind]<val:
                 cnt+=1
         return cnt
     ans=0
@@ -202,7 +202,7 @@ def spearman_coefficient(vec):
 
 
 # dic = dict()
-not_found = [577, 641, 223, 135, 617, 624, 25, 511]
+not_found = [577, 641, 223, 135, 617, 624, 25, 511, 82, 81, 41]
 for YEAR in range(2013,2017):
     CRIME_YEAR = YEAR+1
     vec=[]
@@ -230,7 +230,9 @@ for YEAR in range(2013,2017):
                                         continue
                                     crime_total+=int(crime_data[crime][CRIME_YEAR][crime_dis][item])
                                 break
-            vec.append((schools/pop,crime_total/pop))
+            if pop > 0:
+                vec.append((schools*1000/pop,crime_total*1000/pop))
+            # print(vec[-1])
         except:
             pass
             
