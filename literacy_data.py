@@ -9,14 +9,15 @@ edu_file = open("Education","rb")
 edu_data = pickle.load(edu_file,encoding='utf-8')
 edu_file.close()
 
-year_data = edu_data["2013-14"]
+year_data = edu_data["2016-17"]
 
 literacy_data = dict()
 literacy_data['District'] = []
 literacy_data['literacy_rate'] = []
 for district in year_data:
 	literacy_data['District'].append(district.strip())
-	literacy_data['literacy_rate'].append(year_data[district]['Overall Literacy'])
+	literacy_data['literacy_rate'].append(year_data[district]['Basic data from Census 2011 Literacy Rate'])
+	# literacy_data['literacy_rate'].append(year_data[district]['Overall Literacy'])
 
 literacy_data = pd.DataFrame.from_dict(literacy_data)
 
@@ -64,6 +65,6 @@ merged = merged[['Literacy', 'geometry']]
 
 fig, ax = plt.subplots(1, figsize=(10, 6))
 ax.axis('off')
-ax.set_title('District Wise Literacy Rate in 2013-14', fontdict={'fontsize': '25', 'fontweight' : '3'})
+ax.set_title('District Wise Literacy Rate in 2016-17', fontdict={'fontsize': '25', 'fontweight' : '3'})
 merged.plot(column='Literacy', cmap='Oranges', linewidth=0.8, ax=ax, edgecolor='0.8', legend=False, categorical=False)
 fig.savefig("District_wise_literacy.png", dpi=100)

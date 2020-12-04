@@ -273,7 +273,7 @@ def genKeys(year):
     for ddata in ydata.values():
         for keys in ddata.keys():
             allkey.add(keys)
-    for i in sorted(allkey): print(i)
+    # for i in sorted(allkey): print(i)
     
 
 
