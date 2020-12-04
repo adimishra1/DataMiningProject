@@ -1,0 +1,112 @@
+Government Schools vs All crimes
+Pearson correlation coefficient for year 2013 = 0.19746542348452673
+Spearman correlation coefficient for year 2013 = -0.0037436834078754533
+Pearson correlation coefficient for year 2014 = 0.4286319523128739
+Spearman correlation coefficient for year 2014 = 0.516255108706368
+Pearson correlation coefficient for year 2015 = 0.36716133542278756
+Spearman correlation coefficient for year 2015 = 0.49067041102009534
+Pearson correlation coefficient for year 2016 = 0.3748204776426796
+Spearman correlation coefficient for year 2016 = 0.5217353459845226
+
+
+Private Schools vs All crimes
+Pearson correlation coefficient for year 2013 = 0.13717286792355962
+Spearman correlation coefficient for year 2013 = 0.24253174610490924
+Pearson correlation coefficient for year 2014 = 0.16300182993042525
+Spearman correlation coefficient for year 2014 = 0.21478149362027787
+Pearson correlation coefficient for year 2015 = 0.1225125792711432
+Spearman correlation coefficient for year 2015 = 0.12592306049601543
+Pearson correlation coefficient for year 2016 = 0.1399795852492475
+Spearman correlation coefficient for year 2016 = 0.14115990516574217
+
+
+
+Total Schools vs All crimes
+Pearson correlation coefficient for year 2013 = 0.21334271505044988
+Spearman correlation coefficient for year 2013 = 0.06469099253391208
+Pearson correlation coefficient for year 2014 = 0.39640937493876965
+Spearman correlation coefficient for year 2014 = 0.5077187665822926
+Pearson correlation coefficient for year 2015 = 0.3399354306140808
+Spearman correlation coefficient for year 2015 = 0.4857699713732462
+Pearson correlation coefficient for year 2016 = 0.3426179427014743
+Spearman correlation coefficient for year 2016 = 0.5108699017417047
+
+
+
+Literacy Rate vs All crimes
+Pearson correlation coefficient for year 2013 = -0.029962526934065495
+Spearman correlation coefficient for year 2013 = 0.04416003063057805
+Pearson correlation coefficient for year 2014 = 0.003347925411309727
+Spearman correlation coefficient for year 2014 = -0.03038149204804297
+Pearson correlation coefficient for year 2015 = -0.005831173682854738
+Spearman correlation coefficient for year 2015 = -0.017306221149973267
+Pearson correlation coefficient for year 2016 = -0.007620335633934324
+Spearman correlation coefficient for year 2016 = -0.038532170811163446
+
+
+
+Female Literacy Rate vs Crimes Against Women
+Pearson correlation coefficient for year 2013 = -0.014966455138867683
+Spearman correlation coefficient for year 2013 = -0.06371072901288688
+Pearson correlation coefficient for year 2014 = nan
+Spearman correlation coefficient for year 2014 = -0.042147034029362374
+Pearson correlation coefficient for year 2015 = nan
+Spearman correlation coefficient for year 2015 = -0.022758827240892066
+Pearson correlation coefficient for year 2016 = nan
+Spearman correlation coefficient for year 2016 = -0.048773540984303976
+
+
+Sex Ratio vs Crimes Against Women
+Pearson correlation coefficient for year 2013 = -0.0332541873953295
+Spearman correlation coefficient for year 2013 = -0.0057896727569939355
+Pearson correlation coefficient for year 2014 = -0.12985207216266492
+Spearman correlation coefficient for year 2014 = 0.03108341969092676
+Pearson correlation coefficient for year 2015 = -0.14035180880955742
+Spearman correlation coefficient for year 2015 = 0.04599902976368664
+Pearson correlation coefficient for year 2016 = -0.14014214261576252
+Spearman correlation coefficient for year 2016 = 0.05271326745957494
+
+
+With Computer vs Cyber Crimes
+Pearson correlation coefficient for year 2016 = 0.11186361240011469
+Spearman correlation coefficient for year 2016 = -0.30126803246047595
+
+
+
+With Computer vs All crimes
+Pearson correlation coefficient for year 2013 = 0.15992183618367994
+Spearman correlation coefficient for year 2013 = 0.011321017842907843
+Pearson correlation coefficient for year 2014 = 0.16078197380464745
+Spearman correlation coefficient for year 2014 = -0.0004869182940931971
+Pearson correlation coefficient for year 2015 = 0.1683465212677413
+Spearman correlation coefficient for year 2015 = 0.11125990963637533
+Pearson correlation coefficient for year 2016 = 0.16524508845631722
+Spearman correlation coefficient for year 2016 = 0.09277234966927539
+
+
+Total Schools vs Crimes_by_Jeveniles
+Pearson correlation coefficient for year 2016 = 0.18939505748611696
+Spearman correlation coefficient for year 2016 = -0.1441046888188533
+
+
+Government vs Crimes_by_Jeveniles
+Pearson correlation coefficient for year 2016 = 0.17221151743270746
+Spearman correlation coefficient for year 2016 = -0.19011460471893127
+
+
+Private vs Crimes_by_Jeveniles
+Pearson correlation coefficient for year 2016 = 0.13420805506931205
+Spearman correlation coefficient for year 2016 = -0.173351453389315
+
+
+Total Schools vs Crimes Against Children
+Pearson correlation coefficient for year 2013 = 0.20271561577146682
+Spearman correlation coefficient for year 2013 = 0.08317608060895376
+Pearson correlation coefficient for year 2014 = 0.2184614967065739
+Spearman correlation coefficient for year 2014 = 0.12433058280557063
+Pearson correlation coefficient for year 2015 = 0.18375119366611417
+Spearman correlation coefficient for year 2015 = 0.17722488894347632
+Pearson correlation coefficient for year 2016 = 0.2232410617200624
+Spearman correlation coefficient for year 2016 = 0.209603129009175
+
+
