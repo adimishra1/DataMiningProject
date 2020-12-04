@@ -13,8 +13,8 @@ max_uniform = small_edu_data[year][list(small_edu_data[year].keys())[0]]['TotalU
 min_uniform = small_edu_data[year][list(small_edu_data[year].keys())[0]]['TotalUniformIncentives']
 max_books = small_edu_data[year][  list(small_edu_data[year].keys())[0]]['TotalTextBookIncentives']
 min_books = small_edu_data[year][  list(small_edu_data[year].keys())[0]]['TotalTextBookIncentives']
-max_enroll = quer(year, list(small_edu_data[year].keys())[0], 'TotalEnrolmentGovtE') + quer(year, list(small_edu_data[year].keys())[0], 'TotalEnrolmentPrvtE')
-min_enroll = quer(year, list(small_edu_data[year].keys())[0], 'TotalEnrolmentGovtE') + quer(year, list(small_edu_data[year].keys())[0], 'TotalEnrolmentPrvtE')
+max_enroll = quer(year, list(small_edu_data[year].keys())[0], 'TotalEnrolmentGovtE')
+min_enroll = quer(year, list(small_edu_data[year].keys())[0], 'TotalEnrolmentGovtE')
 
 uniform_list = []
 book_list = []
@@ -35,11 +35,11 @@ for district in small_edu_data[year]:
 	if small_edu_data[year][district]['TotalTextBookIncentives'] < min_books:
 		min_books = small_edu_data[year][district]['TotalTextBookIncentives']
 
-	enroll_list.append(quer(year, district, 'TotalEnrolmentGovtE') + quer(year, district, 'TotalEnrolmentPrvtE'))
-	if quer(year, district, 'TotalEnrolmentGovtE') + quer(year, district, 'TotalEnrolmentPrvtE') > max_enroll:
-		max_enroll = quer(year, district, 'TotalEnrolmentGovtE') + quer(year, district, 'TotalEnrolmentPrvtE')
-	if quer(year, district, 'TotalEnrolmentGovtE') + quer(year, district, 'TotalEnrolmentPrvtE') < min_enroll:
-		min_enroll = quer(year, district, 'TotalEnrolmentGovtE') + quer(year, district, 'TotalEnrolmentPrvtE')
+	enroll_list.append(quer(year, district, 'TotalEnrolmentGovtE'))
+	if quer(year, district, 'TotalEnrolmentGovtE') > max_enroll:
+		max_enroll = quer(year, district, 'TotalEnrolmentGovtE')
+	if quer(year, district, 'TotalEnrolmentGovtE') < min_enroll:
+		min_enroll = quer(year, district, 'TotalEnrolmentGovtE')
 
 enroll_array = np.array(enroll_list)
 enroll_q1 = np.percentile(enroll_array, 25)
@@ -85,5 +85,5 @@ plt.xlim(xx.min(), xx.max())
 plt.ylim(yy.min(), yy.max())
 plt.xticks(())
 plt.yticks(())
-plt.title("Predicting total enrollment in schools based on incentives")
+plt.title("Predicting total enrollment in Govt schools based on incentives")
 plt.show()
