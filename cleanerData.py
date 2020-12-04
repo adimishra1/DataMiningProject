@@ -429,7 +429,7 @@ collectData()
 # genKeys('2009-10')
 
 # print(quer(2007,"Balrampur",'TotalUniformIncentives'))
-print(quer(2007,"Bokaro",'TotalEnrolmentGovtE'))
+# print(quer(2007,"Bokaro",'TotalEnrolmentGovtE'))
 # print(quer(2016,getDistrictCode('Bokaro'),'SexRation'))
 
 
