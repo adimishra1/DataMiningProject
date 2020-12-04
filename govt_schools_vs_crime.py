@@ -3,8 +3,7 @@ import numpy as np
 import sys
 from cleanerData import *
 
-from sklearn.feature_selection import mutual_info_classif
-from sklearn.metrics import mutual_info_score
+
 import matplotlib.pyplot as plt
 
 crime_file = open("Crimes","rb")
@@ -238,6 +237,14 @@ for YEAR in range(2013,2017):
             
     print("Pearson correlation coefficient for year "+str(YEAR)+" = "+str(pearson_coefficient(vec)))
     print("Spearman correlation coefficient for year "+str(YEAR)+" = "+str(spearman_coefficient(vec)))
+    x_axis=[]
+    y_axis=[]
+    for i in range(0,len(vec)):
+        x_axis.append(vec[i][0])
+        y_axis.append(vec[i][1])
+    plt.plot(x_axis,y_axis)
+
+plt.savefig("govt_schools_all_crimes.png")
 
 
 

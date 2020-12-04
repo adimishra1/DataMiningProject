@@ -1,0 +1,56 @@
+Government Schools vs All crimes
+Pearson correlation coefficient for year 2013 = 0.19746542348452678
+Spearman correlation coefficient for year 2013 = -0.0037436834078754533
+Pearson correlation coefficient for year 2014 = 0.20584843589778876
+Spearman correlation coefficient for year 2014 = -0.02081477410073096
+Pearson correlation coefficient for year 2015 = 0.18802907028469035
+Spearman correlation coefficient for year 2015 = 0.0030759961378152845
+Pearson correlation coefficient for year 2016 = 0.17412932875906165
+Spearman correlation coefficient for year 2016 = 0.02648212201366351
+
+
+Private Schools vs All crimes
+
+
+
+Total Schools vs All crimes
+
+
+
+Literacy Rate vs All crimes
+
+
+
+Female Literacy Rate vs Crimes Against Women
+
+
+Sex Ratio vs Crimes Against Women
+
+
+
+Literacy Rate vs Crimes Against Foreigners
+
+
+
+With Computer vs Cyber Crimes
+
+
+With Computer vs All crimes
+
+
+Total Schools vs Crimes_by_Jeveniles
+
+
+Government vs Crimes_by_Jeveniles
+
+
+
+Private vs Crimes_by_Jeveniles
+
+
+Total vs Crimes Against Children
+
+
+
+
+
