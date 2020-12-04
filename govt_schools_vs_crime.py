@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 crime_file = open("Crimes","rb")
 crime_data = pickle.load(crime_file,encoding='utf-8')
 crime_types = ['Crimes_against_Foreigners', 'Crimes_against_Women', 'Reported_SLL', 'SLL_Crimes_by_Jeveniles', 'Cyber_Crimes', 'Reported_IPC', 'Crimes_by_Foreigners', 'Crimes_against_STs', 'Crimes_against_SCs', 'Crimes_against_Children', 'IPC_Crimes_by_Jeveniles', 'Missing_Persons', 'Crimes_against_Senior_Citizens']
+# crime_types = ['Crimes_against_Women']
+# crime_types = ['Crimes_against_Foreigners']
 
 crime_map=dict()
 crime_map[66] = ['ballari']
@@ -210,7 +212,12 @@ for YEAR in range(2013,2017):
         try:
             if code not in not_found:
                 pop = quer(YEAR,code,"TotalPopulation")
-                schools = quer(YEAR,code,"GovtSchoolE")
+                # schools = quer(YEAR,code,"GovtSchoolE")
+                # schools = quer(YEAR,code,"PrvtSchoolE")
+                # schools = quer(YEAR,code,"PrvtSchoolE") + quer(YEAR,code,"GovtSchoolE")
+                schools = quer(YEAR,code,"LiteracyRate")
+                # schools = quer(YEAR,code,"FemaleLiteracyRate")
+                # schools = quer(YEAR,code,"SexRation")
                 crime_total=0
                 for crime in crime_types:
                     if CRIME_YEAR not in crime_data[crime].keys():
@@ -224,13 +231,14 @@ for YEAR in range(2013,2017):
                     for crime_dis in crime_data[crime][CRIME_YEAR].keys():
                         if getDistrictCode(crime_dis)!=-1:
                             if getDistrictCode(crime_dis) == code:
+                                crime_map[code] = [crime_dis]
                                 for item in crime_data[crime][CRIME_YEAR][crime_dis].keys():
                                     if crime_data[crime][CRIME_YEAR][crime_dis][item]=='':
                                         continue
                                     crime_total+=int(crime_data[crime][CRIME_YEAR][crime_dis][item])
                                 break
             if pop > 0:
-                vec.append((schools*1000/pop,crime_total*1000/pop))
+                vec.append((schools,crime_total*100/pop))
             # print(vec[-1])
         except:
             pass
@@ -240,11 +248,55 @@ for YEAR in range(2013,2017):
     x_axis=[]
     y_axis=[]
     for i in range(0,len(vec)):
-        x_axis.append(vec[i][0])
-        y_axis.append(vec[i][1])
-    plt.plot(x_axis,y_axis)
+        if vec[i][1]<4:
+            x_axis.append(vec[i][0])
+            y_axis.append(vec[i][1])
+    plt.scatter(x_axis,y_axis)
 
-plt.savefig("govt_schools_all_crimes.png")
+    # plt.xlabel("Number of Government Schools per population in thousands")
+    # plt.ylabel("Crimes Reported per population in hundreds")
+    
+    # plt.savefig("government_schools_all_crimes_"+str(YEAR)+".png")
+    # plt.clf()
+
+    # plt.xlabel("Number of Private Schools per population in thousands")
+    # plt.ylabel("Crimes Reported per population in hundreds")
+    
+    # plt.savefig("private_schools_all_crimes_"+str(YEAR)+".png")
+    # plt.clf()
+
+    # plt.xlabel("Number of Total Schools per population in thousands")
+    # plt.ylabel("Crimes Reported per population in hundreds")
+    
+    # plt.savefig("total_schools_all_crimes_"+str(YEAR)+".png")
+    # plt.clf()
+
+    plt.xlabel("Literacy Rate")
+    plt.ylabel("Crimes Reported per population in hundreds")
+    
+    plt.savefig("literacy_rate_all_crimes_"+str(YEAR)+".png")
+    plt.clf()
+
+    # plt.xlabel("Female Literacy Rate")
+    # plt.ylabel("Crimes Against Woman per population in ten thousands")
+    
+    # plt.savefig("female_literacy_rate_crimes_against_women_"+str(YEAR)+".png")
+    # plt.clf()
+
+    # plt.xlabel("Sex Ratio")
+    # plt.ylabel("Crimes Against Woman per population in ten thousands")
+    
+    # plt.savefig("sex_ratio_crimes_against_women_"+str(YEAR)+".png")
+    # plt.clf()
+
+    # plt.xlabel("Literacy Rates")
+    # plt.ylabel("Crimes Against Foreigners per population in ten thousands")
+    
+    # plt.savefig("literacy_rates_crimes_against_foreigners_"+str(YEAR)+".png")
+    # plt.clf()
+
+
+    
 
 
 
