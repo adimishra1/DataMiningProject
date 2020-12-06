@@ -26,4 +26,4 @@ correlation_generator.py: calcuates the correlation(spearman and pearson coeffic
 Dependencies:
 -- Pickle is needed to read dictionary which is processed data.
 -- The programs need python packages like sklearn, pandas, numpy, matplotlib, geopandas
--- Please download data from: https://drive.google.com/drive/folders/1eOViXi4Qny_1tBRJV2PnICt2nMruA0IL
+-- Please download data from: https://drive.google.com/drive/folders/1waYNAyPxsRpmmFtk_SAuuWfWt8xTJI50?usp=sharing
