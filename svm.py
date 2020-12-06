@@ -262,8 +262,9 @@ for YEAR in range(2013,2017):
     X_test = np.array(X_test)
     y_test = np.array(y_test)
     y_train = np.array(y_train)
-    # For logistic regression
-    clf = LogisticRegression().fit(X_train,y_train)
+    # For svm classifier
+    model = svm.SVC(kernel='linear')
+    clf = model.fit(X_train, y_train)
     corr=0
     fal=0
     cn1=0
@@ -298,6 +299,6 @@ for YEAR in range(2013,2017):
     plt.xticks(())
     plt.yticks(())
     # plt.legend()
-    plt.title("random_forest(no depth limit)")
-    plt.savefig("random_forest(no_limit)_literacy&incentive_vs_crime_"+str(YEAR)+".png")
+    plt.title("svm")
+    plt.savefig("svm_literacy&incentive_vs_crime_"+str(YEAR)+".png")
     plt.clf()
