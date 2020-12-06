@@ -299,6 +299,6 @@ for YEAR in range(2013,2017):
     plt.xticks(())
     plt.yticks(())
     # plt.legend()
-    plt.title("random_forest(no depth limit)")
-    plt.savefig("random_forest(no_limit)_literacy&incentive_vs_crime_"+str(YEAR)+".png")
+    plt.title("svm")
+    plt.savefig("svm_literacy&incentive_vs_crime_"+str(YEAR)+".png")
     plt.clf()
