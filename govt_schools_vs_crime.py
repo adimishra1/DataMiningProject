@@ -214,7 +214,7 @@ for YEAR in range(2013,2017):
                 pop = quer(YEAR,code,"TotalPopulation")
                 # schools = quer(YEAR,code,"GovtSchoolE")
                 # schools = quer(YEAR,code,"PrvtSchoolE")
-                # schools = quer(YEAR,code,"PrvtSchoolE") + quer(YEAR,code,"GovtSchoolE")
+                # schools = quer(YEAR,code,"PrvtSchoolE") + quer(CRIME_YEAREAR,code,"GovtSchoolE")
                 schools = quer(YEAR,code,"LiteracyRate")
                 # schools = quer(YEAR,code,"FemaleLiteracyRate")
                 # schools = quer(YEAR,code,"SexRation")

@@ -262,8 +262,9 @@ for YEAR in range(2013,2017):
     X_test = np.array(X_test)
     y_test = np.array(y_test)
     y_train = np.array(y_train)
-    # For logistic regression
-    clf = LogisticRegression().fit(X_train,y_train)
+    # For Random Forest Classifier
+    clf = RandomForestClassifier()
+    clf.fit(X_train,y_train)
     corr=0
     fal=0
     cn1=0
